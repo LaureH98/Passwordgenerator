@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Générateur de mot de passe</title>
+  <style>
+    body {
+      background-image: url('image1.png');
+      background-repeat: repeat;
+      background-size: 350px 350px;
+      background-position: center;
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      color: #ff69b4;
+      text-shadow: 1px 1px 3px #fff0fa;
+      text-align: center;
+      margin-top: 50px;
+      background: #fff;
+      display: inline-block;
+      padding: 10px 30px;
+      border-radius: 20px;
+      box-shadow: 1px 3px 12px #e5b2c2;
+    }
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    button {
+      display: block;
+      margin: 30px auto 10px auto;
+      padding: 12px 35px;
+      background-color: #ffb3e6;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 2px 2px 8px #e5b2c2;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #ff69b4;
+    }
+    #result {
+      text-align: center;
+      font-size: 1.5em;
+      color: #a04ba5;
+      background: rgba(255,255,255,0.7);
+      display: inline-block;
+      padding: 20px 30px;
+      border-radius: 20px;
+      margin: 0 auto;
+      box-shadow: 1px 3px 12px #e5b2c2;
+      min-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <h2>Générateur de mot de passe</h2>
+    <button onclick="generate()">Générer</button>
+    <p id="result"></p>
+  </div>
+  <script>
+    function generate() {
+      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{};:,.?/|";
+      let password = "";
+      for (let i = 0; i < 12; i++) {
+        password += chars[Math.floor(Math.random() * chars.length)];
+      }
+      document.getElementById("result").innerText = password;
+    }
+  </script>
+</body>
+</html>
